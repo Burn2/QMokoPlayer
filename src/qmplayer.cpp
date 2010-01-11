@@ -237,7 +237,7 @@ void QMplayer::okClicked()
         if (youtube)
         {
 		  QStringList tmp;
-		  tmp.insert(0,m_youtubeURL.at(0));
+		  tmp.insert(0,m_youtubeURL.at(lw->currentRow()));
           play(tmp);
           return;
 	   }
