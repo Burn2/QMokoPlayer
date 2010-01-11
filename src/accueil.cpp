@@ -80,13 +80,21 @@ bool Accueil::installMplayer()
 		QFile::remove(QDir::homePath ()+"/.mplayer/config");
 	if (QFile::exists("/usr/bin/mplayer"))
 		QFile::remove("/usr/bin/mplayer");
+	if (QFile::exists("/usr/bin/youtube-dl"))
+		QFile::remove("/usr/bin/youtube-dl");	
     return download("http://72.249.85.183/radekp/qmplayer/download/mplayer",
                     "/usr/bin/mplayer", "mplayer", false) &&
     QFile::setPermissions("/usr/bin/mplayer", QFile::ReadOwner |
                           QFile::WriteOwner | QFile::ExeOwner |
                           QFile::ReadUser | QFile::ExeUser |
                           QFile::ReadGroup | QFile::ExeGroup |
-                          QFile::ReadOther | QFile::ExeOther)&&download("http://alionet-repository.no-ip.info/QTMoko/config",
+                          QFile::ReadOther | QFile::ExeOther) && download("http://alionet-repository.no-ip.info/QTMoko/youtube-dl",
+                    "/usr/bin/youtube-dl", "youtube-dl", false) &&
+    QFile::setPermissions("/usr/bin/youtube-dl", QFile::ReadOwner |
+                          QFile::WriteOwner | QFile::ExeOwner |
+                          QFile::ReadUser | QFile::ExeUser |
+                          QFile::ReadGroup | QFile::ExeGroup |
+                          QFile::ReadOther | QFile::ExeOther) && download("http://alionet-repository.no-ip.info/QTMoko/config",
                     QDir::homePath ()+"/.mplayer/config", "mplayer", false) &&
     QFile::setPermissions(QDir::homePath ()+"/.mplayer/config", QFile::ReadOwner |
                           QFile::WriteOwner | QFile::ExeOwner |
