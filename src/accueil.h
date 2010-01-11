@@ -6,6 +6,7 @@
 #include "radioplayer.h"
 #include "options.h"
 #include "qmplayer.h"
+#include "youtubeplayer.h"
 
 class Accueil : public QWidget, public Ui_Accueil
 {
@@ -17,6 +18,7 @@ public:
 private slots:
     void RadioButton_clicked();
     void VideoButton_clicked();
+    void YoutubeButton_clicked();
     void options();
     void upgrade();
     bool installMplayer();
@@ -25,6 +27,7 @@ private:
    RadioPlayer * m_r;
    QMplayer * m_v;
    Options * m_o; 
+   YoutubePlayer * m_y;
 };
 
 #endif

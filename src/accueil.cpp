@@ -26,6 +26,7 @@ Accueil::Accueil(QWidget *parent, Qt::WFlags f)
     connect(actionClose,SIGNAL(triggered()), this, SLOT(close()));
     connect(RadioButton,SIGNAL(clicked()), this, SLOT(RadioButton_clicked()));
     connect(VideoButton,SIGNAL(clicked()), this, SLOT(VideoButton_clicked()));
+    connect(YoutubeButton,SIGNAL(clicked()), this, SLOT(YoutubeButton_clicked()));
     menu->addAction(actionClose);
     QSoftMenuBar::setHelpEnabled(this,false);
     
@@ -277,6 +278,11 @@ void Accueil::VideoButton_clicked()
 {
     m_v = new QMplayer();
     m_v->show();
+}
+void Accueil::YoutubeButton_clicked()
+{
+    m_y = new YoutubePlayer();
+    m_y->show();
 }
 
 void Accueil::options()

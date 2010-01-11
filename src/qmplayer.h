@@ -36,6 +36,7 @@ class QMplayer : public QWidget
 
 public:
     QMplayer(QWidget *parent = 0, Qt::WFlags f = 0);
+    void setList(QStringList  title,QStringList  url);
     ~QMplayer();
 
 private:
@@ -49,11 +50,13 @@ private:
         ScreenDownload,
         ScreenConnect,
     };
-    
+    QStringList m_httpURL;
+    QStringList  m_youtubeURL;
     Screen screen;
     int maxScanLevel;
     int delTmpFiles;
     bool abort;
+    bool youtube;
     QVBoxLayout* layout;
     QHBoxLayout* buttonLayout;
     QListWidget* lw;

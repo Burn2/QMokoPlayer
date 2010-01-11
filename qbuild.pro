@@ -35,14 +35,16 @@ FORMS=ui/accueil.ui\
 	 ui/musicplayer.ui\
 	 ui/radioplayer.ui\
 	 ui/radioplayeredit.ui\
-	 ui/options.ui
+	 ui/options.ui\
+	 ui/youtubeplayer.ui
  
 HEADERS=\
     src/accueil.h\
     src/radioplayer.h\
     src/radioplayeredit.h\
     src/options.h\
-    src/qmplayer.h
+    src/qmplayer.h\
+    src/youtubeplayer.h
  
 SOURCES=\
     src/main.cpp\
@@ -50,7 +52,8 @@ SOURCES=\
     src/radioplayer.cpp\
     src/radioplayeredit.cpp\
     src/options.cpp\
-    src/qmplayer.cpp
+    src/qmplayer.cpp\
+    src/youtubeplayer.cpp
  
 # SXE information
 target [

@@ -3,6 +3,7 @@
 QMplayer::QMplayer(QWidget *parent, Qt::WFlags f)
     : QWidget(parent)
 {
+youtube=false;
 doubleclic= new QTimer(this);
 doubleclic->setSingleShot (true);
 m_marge=100;
@@ -61,6 +62,23 @@ m_marge=100;
 
     showScreen(QMplayer::ScreenInit);
 }
+
+
+// modification for put the title in the list of qmplayer
+void QMplayer::setList(QStringList  title,QStringList  url)
+{
+youtube=true;
+    lw->clear();
+    m_youtubeURL=url;
+	for (int i=0;i<title.count();i++)
+		lw->insertItem(i, title.at(i));	
+
+    showScreen(QMplayer::ScreenInit);
+}
+
+
+
+
 
 QMplayer::~QMplayer()
 {
@@ -211,11 +229,18 @@ void QMplayer::okClicked()
     if(screen == QMplayer::ScreenInit)
     {
         QListWidgetItem *sel = lw->currentItem();
-
+ 
         if(sel == NULL)
         {
             return;
         }
+        if (youtube)
+        {
+		  QStringList tmp;
+		  tmp.insert(0,m_youtubeURL.at(0));
+          play(tmp);
+          return;
+	   }
         if(sel == scanItem)
         {
             scan();
