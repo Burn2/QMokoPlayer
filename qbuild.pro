@@ -24,7 +24,7 @@ pkg [
     name=qmokoplayer
     desc="QMokoPlayer, a multimedia player"
     license=GPLV3
-    version=0.3.0-1BETA1
+    version=0.3.0-1
     maintainer="Burn2 <info@qtextended.org>"
     domain=window
     devices=ficgta01,neo1973
