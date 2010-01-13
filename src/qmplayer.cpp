@@ -64,17 +64,7 @@ m_marge=100;
 }
 
 
-// modification for put the title in the list of qmplayer
-void QMplayer::setList(QStringList  title,QStringList  url)
-{
-youtube=true;
-    lw->clear();
-    m_youtubeURL=url;
-	for (int i=0;i<title.count();i++)
-		lw->insertItem(i, title.at(i));	
 
-    showScreen(QMplayer::ScreenInit);
-}
 
 
 
@@ -146,6 +136,19 @@ static void delItems(QListWidget *lw)
         delete(lw->takeItem(2));
     }
 }
+
+// modification for put the title in the list of qmplayer
+void QMplayer::setList(QStringList  title,QStringList  url)
+{
+   youtube=true;
+   lw->clear();
+   m_youtubeURL=url;
+   for (int i=0;i<title.count();i++)
+		lw->insertItem(i, title.at(i));	
+
+   showScreen(QMplayer::ScreenInit);
+}
+
 
 // Add item with directory name in list view.
 static QListWidgetItem *getDirItem(QListView *lw, QString dir)
